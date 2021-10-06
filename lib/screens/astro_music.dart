@@ -2,25 +2,42 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:music_player/components/listviewBuilder.dart';
-// import 'package:music_player/components/Songs.dart';
 import 'package:music_player/components/musics.dart';
+import 'package:music_player/screens/initialPage.dart';
+import 'detailPage.dart';
 
-import '../detailPage.dart';
-
-class MusicPlayer extends StatefulWidget {
-  const MusicPlayer({Key? key}) : super(key: key);
+class AstroMusic extends StatefulWidget {
+  var index;
+  late var musics;
+AstroMusic ({this.musics, this.index});
 
   @override
-  _MusicPlayerState createState() => _MusicPlayerState();
+  _AstroMusicState createState() => _AstroMusicState();
 }
 
-class _MusicPlayerState extends State<MusicPlayer> {
-  late List musics;
+class _AstroMusicState extends State<AstroMusic> {
   @override
   void initState() {
-    musics = getList();
+    widget.musics = getList();
     super.initState();
   }
+
+  changeMusic(bool isNext) {
+    if (isNext) {
+      if (widget.index != widget.musics.length - 1) {
+        setState(() {
+          widget.index++;
+        });
+        print(widget.index);
+      }
+    } else {
+      if (widget.index != 0) {
+        widget.index--;
+        print(widget.index);
+      }
+    }
+  }
+
 
   List getList() {
     return [
@@ -28,72 +45,62 @@ class _MusicPlayerState extends State<MusicPlayer> {
           title: "Uptown Funk",
           singer: "One Republic",
           url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-          image:
-              "assets/AI.jpg"),
+          image: "assets/AI.jpg"),
       Songs(
         title: "Blank Space",
         singer: "Taylor Swift",
         url:
-            "https://img.naijapals.com/69441/n3000311ca56a1cb93397bc676c0b7fff-83f616ad1ce4e7313c38aa86bad03857.mp3",
-        image:
-            "assets/AI.jpg",
+            "https://ghettoparrot.com/wp-content/uploads/2020/06/Taylor-Swift-Blank-Space.mp3",
+        image: "assets/AI.jpg",
       ),
       Songs(
         title: "Shake it off",
         singer: "Coldplay",
         url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-        image:
-            "assets/AI.jpg",
+        image: "assets/AI.jpg",
       ),
       Songs(
           title: "Lean On",
           singer: "T. Schürger",
           url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
-          image:
-              "assets/AI.jpg"),
+          image: "assets/AI.jpg"),
       Songs(
           title: "Sugar",
           singer: "Adele",
           url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
-          image:
-              "assets/AI.jpg"),
+          image: "assets/AI.jpg"),
       Songs(
           title: "Believer",
           singer: "Ed Sheeran",
           url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
-          image:
-              "assets/AI.jpg"),
+          image: "assets/AI.jpg"),
       Songs(
           title: "Stressed out",
           singer: "Mark Ronson",
           url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3",
-          image:
-              "assets/AI.jpg"),
+          image: "assets/AI.jpg"),
       Songs(
           title: "Girls Like You",
           singer: "Maroon 5",
           url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
-          image:
-              "assets/AI.jpg"),
+          image: "assets/AI.jpg"),
       Songs(
           title: "Let her go",
           singer: "Passenger",
           url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3",
-          image:
-              "assets/AI.jpg"),
+          image: "assets/AI.jpg"),
       Songs(
           title: "Roar",
           singer: "Katy Perry",
           url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3",
-          image:
-              "assets/AI.jpg"),
+          image: "assets/AI.jpg"),
     ];
   }
 
   String avatarImage = 'assets/pic.png';
   String avatarTitle = 'Song title';
   String avatarSinger = 'Singer';
-  var playOnPressed = (){};
+  var playOnPressed = () {};
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +133,9 @@ class _MusicPlayerState extends State<MusicPlayer> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 5,),
+                      SizedBox(
+                        width: 5,
+                      ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,9 +147,21 @@ class _MusicPlayerState extends State<MusicPlayer> {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 25),
                           ),
-                          SizedBox(height: 5,),
+                          SizedBox(
+                            height: 5,
+                          ),
                           Text(
                             avatarSinger,
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.8),
+                              fontSize: 17,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            widget.musics.length.toString() + ' Songs',
                             style: TextStyle(
                               color: Colors.white.withOpacity(0.7),
                               fontSize: 17,
@@ -160,11 +181,11 @@ class _MusicPlayerState extends State<MusicPlayer> {
                                     width: 100,
                                     child: Center(
                                         child: Text(
-                                          'Play',
-                                          style: TextStyle(
-                                              color: Color(0xFF0A2751),
-                                              fontWeight: FontWeight.bold),
-                                        )),
+                                      'Play',
+                                      style: TextStyle(
+                                          color: Color(0xFF0A2751),
+                                          fontWeight: FontWeight.bold),
+                                    )),
                                     decoration: BoxDecoration(
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(30),
@@ -174,10 +195,13 @@ class _MusicPlayerState extends State<MusicPlayer> {
                                 SizedBox(
                                   width: 5,
                                 ),
-                                Icon(Icons.favorite_border_rounded, size: 35,)
+                                Icon(
+                                  Icons.favorite_border_rounded,
+                                  size: 35,
+                                )
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ],
@@ -211,24 +235,28 @@ class _MusicPlayerState extends State<MusicPlayer> {
                           itemCount: getList().length,
                           itemBuilder: (context, index) => myListView(
                                 onTap: () {
-                                 setState(() {
-                                   avatarImage = musics[index].image;
-                                   avatarTitle = musics[index].title;
-                                   avatarSinger = musics[index].singer;
-                                   playOnPressed = (){
-                                     Navigator.push(
-                                       context,
-                                       MaterialPageRoute(
-                                           builder: (context) =>
-                                               DetailPage(mMusic: musics[index])),
-                                     );
-                                   };
-
-                                 });
+                                  setState(() {
+                                    avatarImage = widget.musics[index].image;
+                                    avatarTitle = widget.musics[index].title;
+                                    avatarSinger = widget.musics[index].singer;
+                                    playOnPressed = () {
+                                      widget.index = index;
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => DetailPage(
+                                            mMusic: widget.musics[widget.index],
+                                            index: widget.index,
+                                            changeSong: changeMusic,
+                                          ),
+                                        ),
+                                      );
+                                    };
+                                  });
                                 },
-                                title: musics[index].title,
-                                singer: musics[index].singer,
-                                image: musics[index].image,
+                                title: widget.musics[index].title,
+                                singer: widget.musics[index].singer,
+                                image: widget.musics[index].image,
                               )),
                     ),
                   ]),

@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:music_player/screens/initialPage.dart';
 
-Widget myListView({
+Widget myListView(
+    {
   required String title,
 required String singer,
 required String image,
@@ -76,15 +78,6 @@ required onTap,
                 ),
               )
           ),
-          // Container(
-          //   width: 80,
-          //   height: 80,
-          //   child: Icon(
-          //     Icons.,
-          //     color: Colors.white,
-          //     size: 42,
-          //   ),
-          // )
         ],
       ),
     ),
