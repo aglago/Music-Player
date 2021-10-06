@@ -6,14 +6,14 @@ import 'package:music_player/components/listviewBuilder.dart';
 import 'package:music_player/components/musics.dart';
 import 'detailPage.dart';
 
-class Sleep extends StatefulWidget {
-  const Sleep({Key? key}) : super(key: key);
+class WholeBrainOptimization extends StatefulWidget {
+  const WholeBrainOptimization({Key? key}) : super(key: key);
 
   @override
-  _SleepState createState() => _SleepState();
+  _WholeBrainOptimizationState createState() => _WholeBrainOptimizationState();
 }
 
-class _SleepState extends State<Sleep> {
+class _WholeBrainOptimizationState extends State<WholeBrainOptimization> {
   late List musics;
   @override
   void initState() {

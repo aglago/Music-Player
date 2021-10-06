@@ -2,18 +2,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:music_player/components/listviewBuilder.dart';
-// import 'package:music_player/components/Songs.dart';
 import 'package:music_player/components/musics.dart';
 import 'detailPage.dart';
 
-class Meditation extends StatefulWidget {
-  const Meditation({Key? key}) : super(key: key);
+class Chakra extends StatefulWidget {
+  const Chakra({Key? key}) : super(key: key);
 
   @override
-  _MeditationState createState() => _MeditationState();
+  _ChakraState createState() => _ChakraState();
 }
 
-class _MeditationState extends State<Meditation> {
+class _ChakraState extends State<Chakra> {
   late List musics;
   @override
   void initState() {
@@ -24,20 +23,23 @@ class _MeditationState extends State<Meditation> {
   List getList() {
     return [
       Songs(
-          title: "Lean On",
-          singer: "T. Schürger",
-          url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+          title: "Uptown Funk",
+          singer: "One Republic",
+          url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
           image: "assets/AI.jpg"),
       Songs(
-          title: "Sugar",
-          singer: "Adele",
-          url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
-          image: "assets/AI.jpg"),
+        title: "Blank Space",
+        singer: "Taylor Swift",
+        url:
+        "https://img.naijapals.com/69441/n3000311ca56a1cb93397bc676c0b7fff-83f616ad1ce4e7313c38aa86bad03857.mp3",
+        image: "assets/AI.jpg",
+      ),
       Songs(
-          title: "Believer",
-          singer: "Ed Sheeran",
-          url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
-          image: "assets/AI.jpg"),
+        title: "Shake it off",
+        singer: "Coldplay",
+        url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+        image: "assets/AI.jpg",
+      ),
     ];
   }
 
@@ -189,7 +191,7 @@ class _MeditationState extends State<Meditation> {
                                     MaterialPageRoute(
                                         builder: (context) => DetailPage(
                                             mMusic: musics[index],
-                                          index: index,
+                                        index: index,
                                         )),
                                   );
                                 };

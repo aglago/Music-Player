@@ -7,9 +7,9 @@ import 'package:music_player/components/firstPageColumn.dart';
 import 'package:music_player/components/musics.dart';
 import 'package:music_player/screens/detailPage.dart';
 import 'package:music_player/screens/favorites.dart';
-import 'package:music_player/screens/meditation.dart';
-import 'package:music_player/screens/sleep.dart';
-import 'package:music_player/screens/stress.dart';
+import 'package:music_player/screens/brain_massage_music.dart';
+import 'package:music_player/screens/whole_brain_optimization_music.dart';
+import 'package:music_player/screens/chakra_music.dart';
 
 import 'astro_music.dart';
 
@@ -64,7 +64,7 @@ class _InitialPageState extends State<InitialPage> {
                 bottom: 0,
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Stress()));
+                      MaterialPageRoute(builder: (context) => Chakra()));
                 },
               ),
             ],
@@ -78,7 +78,7 @@ class _InitialPageState extends State<InitialPage> {
                 bottom: 0,
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Meditation()));
+                      MaterialPageRoute(builder: (context) => BrainMassage()));
                 },
               ),
               SizedBox(
@@ -91,7 +91,7 @@ class _InitialPageState extends State<InitialPage> {
                 bottom: 0,
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Sleep()));
+                      MaterialPageRoute(builder: (context) => WholeBrainOptimization()));
                 },
               ),
             ],

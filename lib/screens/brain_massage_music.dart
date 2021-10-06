@@ -2,17 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:music_player/components/listviewBuilder.dart';
+// import 'package:music_player/components/Songs.dart';
 import 'package:music_player/components/musics.dart';
 import 'detailPage.dart';
 
-class Stress extends StatefulWidget {
-  const Stress({Key? key}) : super(key: key);
+class BrainMassage extends StatefulWidget {
+  const BrainMassage({Key? key}) : super(key: key);
 
   @override
-  _StressState createState() => _StressState();
+  _BrainMassageState createState() => _BrainMassageState();
 }
 
-class _StressState extends State<Stress> {
+class _BrainMassageState extends State<BrainMassage> {
   late List musics;
   @override
   void initState() {
@@ -23,23 +24,20 @@ class _StressState extends State<Stress> {
   List getList() {
     return [
       Songs(
-          title: "Uptown Funk",
-          singer: "One Republic",
-          url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+          title: "Lean On",
+          singer: "T. Schürger",
+          url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
           image: "assets/AI.jpg"),
       Songs(
-        title: "Blank Space",
-        singer: "Taylor Swift",
-        url:
-        "https://img.naijapals.com/69441/n3000311ca56a1cb93397bc676c0b7fff-83f616ad1ce4e7313c38aa86bad03857.mp3",
-        image: "assets/AI.jpg",
-      ),
+          title: "Sugar",
+          singer: "Adele",
+          url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+          image: "assets/AI.jpg"),
       Songs(
-        title: "Shake it off",
-        singer: "Coldplay",
-        url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-        image: "assets/AI.jpg",
-      ),
+          title: "Believer",
+          singer: "Ed Sheeran",
+          url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3",
+          image: "assets/AI.jpg"),
     ];
   }
 
@@ -191,7 +189,7 @@ class _StressState extends State<Stress> {
                                     MaterialPageRoute(
                                         builder: (context) => DetailPage(
                                             mMusic: musics[index],
-                                        index: index,
+                                          index: index,
                                         )),
                                   );
                                 };
